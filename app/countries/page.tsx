@@ -1,0 +1,3 @@
+import type { Metadata } from 'next'; import Link from 'next/link'; import { countries } from '@/lib/postal';
+export const metadata: Metadata = { title: 'Countries' };
+export default function Countries() {return <main className="max-w-6xl mx-auto px-5 py-12"><h1 className="text-4xl font-bold mb-3">Country directory</h1><p className="text-slate-600 mb-8">The initial demonstration includes selected postal codes for these countries.</p><div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">{countries.map(c=><Link className="bg-white rounded-xl p-6 border hover:border-sky-400" key={c.code} href={'/country/'+c.slug}><span className="text-3xl mr-3">{c.flag}</span><span className="font-bold">{c.name}</span></Link>)}</div></main>}
