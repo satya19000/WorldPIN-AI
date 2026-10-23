@@ -1,0 +1,1 @@
+import type { MetadataRoute } from 'next';import {countries} from '@/lib/postal';export default function sitemap():MetadataRoute.Sitemap{const base=process.env.NEXT_PUBLIC_SITE_URL??'http://localhost:3000';return ['','/countries','/about',...countries.map(c=>'/country/'+c.slug)].map(path=>({url:base+path,changeFrequency:'weekly' as const,priority:path?0.6:1}));}
